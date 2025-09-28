@@ -90,8 +90,9 @@ Results are reported under semi-supervised settings with varying labeled ratios:
 | **Ours**     | **68.5 / 97.25** | **68.1 / 97.28** | **69.6 / 97.43** | **70.6 / 97.50** |
 > **Sup-fully (100% labels)**: EGY-BCD — IoU = 71.7, OA = 97.62
 
-## 🚀 Getting Started
+---
 
+## 🚀 Getting Started
 
 ### Pretrained Backbone
 
@@ -112,11 +113,36 @@ Download the pre-trained checkpoint: [SAM2](https://github.com/facebookresearch/
 - GZ-CD: [aistudio](https://aistudio.baidu.com/datasetdetail/129387)
 - EGY-BCD: [baidu drive](https://pan.baidu.com/share/init?surl=UREv4F0DBHgabJW2VScgCA), passward:EGYD. [google drive](https://drive.google.com/file/d/16LLC1iSJQuFPrfuXCJSeSsEzKhXodhzp/view?pli=1)
 
-The data directory should follow the structure below, and the train/val/test splits are defined in the `splits/` folder.
+The data directory should follow the structure below:
 ```
-├── [Your WHU-CD/LEVIR-CD Path]
+├── [Your WHU-CD/LEVIR-CD/GZ-CD/EGY-BCD Path]
     ├── A
     ├── B
     └── label
 ```
 
+Train/validation/test splits and semi-supervised partitions (e.g., 5%, 10%, 20%, 40% labeled) are provided in the `splits/` folder. For example, the structure for `splits/whu` is:
+```
+whu/
+├── train.txt
+├── val.txt
+├── test.txt
+├── 5%/
+│   ├── labeled.txt
+│   └── unlabeled.txt
+├── 10%/
+│   ├── labeled.txt
+│   └── unlabeled.txt
+├── 20%/
+│   ├── labeled.txt
+│   └── unlabeled.txt
+└── 40%/
+    ├── labeled.txt
+    └── unlabeled.txt
+```
+
+---
+
+## ❤️ Acknowledgements
+
+Thanks to [SAM2-UNet](https://github.com/WZH0120/SAM2-UNet) and [UniMatch](https://github.com/LiheYoung/UniMatch) for their great work.
