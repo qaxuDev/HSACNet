@@ -34,7 +34,7 @@ Results are reported under semi-supervised settings with varying labeled ratios:
 | CBFF         | 79.0 / 99.11   | 80.5 / 99.15   | 82.0 / 99.23   | 82.5 / 99.26   |
 | Sup-only     | 56.4 / 97.90   | 66.1 / 98.38   | 74.4 / 98.82   | 84.3 / 99.34   |
 | **Ours**     | **81.7 / 99.23** | **81.3 / 99.20** | **84.9 / 99.35** | **86.3 / 99.42** |
-| Sup-fully    | \multicolumn{4}{c}{IoU = 89.5, OA = 99.27} |
+> **Sup-fully (100% labels)**: WHU-CD — IoU = 89.5, OA = 99.27  
 
 #### 🔹 LEVIR-CD
 
@@ -49,8 +49,8 @@ Results are reported under semi-supervised settings with varying labeled ratios:
 | UniMatch     | 82.1 / 99.03   | 82.8 / 99.07   | 82.9 / 99.07   | 83.0 / 99.08   |
 | CBFF         | 82.1 / 99.03   | 82.8 / 99.06   | **83.2 / 99.09** | 83.3 / 99.08   |
 | Sup-only     | 72.0 / 98.38   | 77.1 / 98.72   | 81.1 / 98.96   | 82.2 / 99.03   |
-| **Ours**     | **82.2 / 99.03** | **83.1 / 99.07** | **83.2 / 99.08** | **83.5 / 99.10** |
-| Sup-fully    |                     {IoU = 83.8, OA = 99.11}                      |
+| **Ours**     | **82.2 / 99.03** | **83.1 / 99.07** | **83.2 / 99.08** | **83.5 / 99.10** |                  
+> **Sup-fully (100% labels)**: LEVIR-CD — IoU = 83.8, OA = 99.11
 
 ---
 
@@ -73,7 +73,7 @@ Results are reported under semi-supervised settings with varying labeled ratios:
 | CBFF         | 67.4 / 97.05   | 69.3 / 97.24   | 72.0 / 97.62   | 76.4 / 97.99   |
 | Sup-only     | 64.8 / 96.51   | 64.2 / 96.75   | 69.8 / 97.23   | 78.2 / 98.08   |
 | **Ours**     | **72.5 / 97.44** | **73.1 / 97.64** | **80.1 / 98.27** | **81.4 / 98.40** |
-| Sup-fully    |                      IoU = 83.3, OA = 98.54                       |
+> **Sup-fully (100% labels)**: GZ-CD — IoU = 83.3, OA = 98.54
 
 #### 🔹 EGY-BCD
 
@@ -88,6 +88,35 @@ Results are reported under semi-supervised settings with varying labeled ratios:
 | CBFF         | 63.7 / 96.64   | 64.3 / 96.95   | 63.8 / 96.95   | 67.7 / 97.21   |
 | Sup-only     | 58.2 / 96.05   | 59.6 / 96.26   | 65.0 / 96.95   | 69.1 / 97.35   |
 | **Ours**     | **68.5 / 97.25** | **68.1 / 97.28** | **69.6 / 97.43** | **70.6 / 97.50** |
-| Sup-fully    |                         IoU = 71.7, OA = 97.62                    |
+> **Sup-fully (100% labels)**: EGY-BCD — IoU = 71.7, OA = 97.62
 
+## 🚀 Getting Started
+
+
+### Pretrained Backbone
+
+Download the pre-trained checkpoint: [SAM2](https://github.com/facebookresearch/sam2).
+
+```
+├── ./pretrained
+    ├── sam2_hiera_tiny.pt
+    ├── sam2_hiera_small.pt
+    ├── sam2_hiera_base_plus.pt
+    ├── sam2_hiera_large.pt
+```
+
+### Dataset
+
+- WHU-CD: [imageA, imageB, and label](https://www.dropbox.com/s/r76a00jcxp5d3hl/WHU-CD-256.zip?dl=0)
+- LEVIR-CD: [imageA, imageB, and label](https://www.dropbox.com/s/18fb5jo0npu5evm/LEVIR-CD256.zip?dl=0)
+- GZ-CD: [aistudio](https://aistudio.baidu.com/datasetdetail/129387)
+- EGY-BCD: [baidu drive](https://pan.baidu.com/share/init?surl=UREv4F0DBHgabJW2VScgCA), passward:EGYD. [google drive](https://drive.google.com/file/d/16LLC1iSJQuFPrfuXCJSeSsEzKhXodhzp/view?pli=1)
+
+The data directory should follow the structure below, and the train/val/test splits are defined in the `splits/` folder.
+```
+├── [Your WHU-CD/LEVIR-CD Path]
+    ├── A
+    ├── B
+    └── label
+```
 
